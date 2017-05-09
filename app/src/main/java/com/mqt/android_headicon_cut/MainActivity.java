@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent intent) {
+        if (resultCode == RESULT_CANCELED) {
+            return;
+        }
         switch (requestCode) {
             case CODE_GALLERY_REQUEST:
                 cropImage(intent.getData(), 450, 450, CROP_PICTURE_REQUEST);
